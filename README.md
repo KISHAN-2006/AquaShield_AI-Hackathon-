@@ -14,6 +14,9 @@ Dashboard readings are simulated sample scenarios. The Assistant uses live Open-
 ## Deploy on AWS (needed for prize eligibility)
 Server: `server/Dockerfile` on AWS App Runner (set ORIGIN to your site). Client: `npm run build`, host `client/dist` on S3 + CloudFront or Amplify, and point `/api` to the App Runner URL.
 
+## Deploy the client on Netlify
+The repository root `netlify.toml` configures Netlify to build from `client` and publish `dist`. Connect the repository to Netlify and deploy with the default build settings. The API server is separate and must be deployed independently for API-backed features.
+
 ## Report email notifications
 Reports are saved even if email delivery is unavailable. To send notifications, verify `SES_FROM_EMAIL` in Amazon SES, set `AWS_REGION`, `SES_FROM_EMAIL`, and `REPORT_EMAIL_TO` in the server environment, and grant the App Runner instance role `ses:SendEmail` permission. The recipient defaults to the project owner's configured address above. SES sandbox accounts must also verify the recipient or be moved out of the sandbox. For local runs, provide AWS credentials through the standard AWS SDK credential chain before starting the server. The Report screen confirms whether email delivery succeeded.
 
