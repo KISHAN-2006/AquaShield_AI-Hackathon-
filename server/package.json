@@ -1,0 +1,1 @@
+{"name":"aquashield-server","type":"module","scripts":{"start":"node index.js"},"dependencies":{"@aws-sdk/client-sesv2":"^3.700.0","cors":"^2.8.5","express":"^4.19.2"}}
